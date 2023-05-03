@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://mpmb7kvjgxpf"]
+
+[ext_resource type="Script" path="res://player/player1/player.gd" id="1_vqv6r"]
+[ext_resource type="Texture2D" uid="uid://cktl8nypbeawy" path="res://Image/bat.png" id="2_016tg"]
+[ext_resource type="AudioStream" uid="uid://bqnqe77tkdd1m" path="res://sound/zapsplat_multimedia_notification_bell_chime_ring_alert_015_41169.mp3" id="3_mvk5h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cl2xk"]
+size = Vector2(4, 32)
+
+[node name="player" type="Area2D"]
+position = Vector2(20, 30)
+script = ExtResource("1_vqv6r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 2)
+texture = ExtResource("2_016tg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_cl2xk")
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mvk5h")
+
+[node name="sound_child" type="Node" parent="sound"]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://cej06td7dh003"]
+
+[ext_resource type="Texture2D" uid="uid://bxun7w6g7s5j0" path="res://Image/line.png" id="1"]
+[ext_resource type="Script" path="res://map/edge_left.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://hwea54turf2u" path="res://ball/ball.tscn" id="3"]
+[ext_resource type="Script" path="res://map/edge_top.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://bixxjig4i8jey" path="res://score_scene/score_scene.tscn" id="5_h8m8q"]
+[ext_resource type="PackedScene" uid="uid://mpmb7kvjgxpf" path="res://player/player1/player.tscn" id="6_kfw33"]
+[ext_resource type="PackedScene" uid="uid://mjgh6q3or2xu" path="res://player/player2/player_2.tscn" id="7_le4sx"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+
+[node name="Node" type="Node"]
+
+[node name="bg" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="line" type="Sprite2D" parent="."]
+position = Vector2(576, 330)
+scale = Vector2(0.5, 165)
+texture = ExtResource("1")
+
+[node name="edge_left" type="Area2D" parent="."]
+position = Vector2(0, 324)
+scale = Vector2(1, 33)
+script = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="edge_left"]
+shape = SubResource("1")
+
+[node name="edge_right" type="Area2D" parent="."]
+position = Vector2(1152, 324)
+scale = Vector2(1, 33)
+script = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="edge_right"]
+shape = SubResource("1")
+
+[node name="edge_top" type="Area2D" parent="."]
+position = Vector2(576, 0)
+scale = Vector2(60, 1)
+script = ExtResource("4")
+y = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="edge_top"]
+shape = SubResource("1")
+
+[node name="edge_bottom" type="Area2D" parent="."]
+position = Vector2(576, 648)
+scale = Vector2(60, 1)
+script = ExtResource("4")
+y = -2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="edge_bottom"]
+shape = SubResource("1")
+
+[node name="ball" parent="." instance=ExtResource("3")]
+position = Vector2(576, 324)
+
+[node name="score_scene" parent="." instance=ExtResource("5_h8m8q")]
+
+[node name="player" parent="." instance=ExtResource("6_kfw33")]
+
+[node name="player2" parent="." instance=ExtResource("7_le4sx")]

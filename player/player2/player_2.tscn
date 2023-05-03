@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://mjgh6q3or2xu"]
+
+[ext_resource type="Script" path="res://player/player2/player2.gd" id="1_33ybf"]
+[ext_resource type="Texture2D" uid="uid://cktl8nypbeawy" path="res://Image/bat.png" id="2_jcisy"]
+[ext_resource type="AudioStream" uid="uid://bqnqe77tkdd1m" path="res://sound/zapsplat_multimedia_notification_bell_chime_ring_alert_015_41169.mp3" id="3_dv24e"]
+[ext_resource type="Script" path="res://player/player2/signal_node.gd" id="4_w4lak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2j8m2"]
+size = Vector2(4, 32)
+
+[node name="player2" type="Area2D"]
+position = Vector2(1132, 30)
+script = ExtResource("1_33ybf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 2)
+texture = ExtResource("2_jcisy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_2j8m2")
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dv24e")
+
+[node name="sound_child" type="Node" parent="sound"]
+
+[node name="signal_node" type="Node" parent="."]
+script = ExtResource("4_w4lak")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

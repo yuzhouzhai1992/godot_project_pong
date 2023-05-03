@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bixxjig4i8jey"]
+
+[ext_resource type="Script" path="res://score_scene/Label1.gd" id="1_pmfo8"]
+[ext_resource type="Script" path="res://score_scene/Label2.gd" id="2_to1j1"]
+
+[node name="score_scene" type="Node"]
+metadata/_edit_horizontal_guides_ = [166.0]
+metadata/_edit_vertical_guides_ = [249.0, 872.0]
+
+[node name="Label1" type="Label" parent="."]
+offset_left = 250.0
+offset_top = 156.0
+offset_right = 290.0
+offset_bottom = 179.0
+script = ExtResource("1_pmfo8")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 872.0
+offset_top = 155.0
+offset_right = 912.0
+offset_bottom = 178.0
+script = ExtResource("2_to1j1")
